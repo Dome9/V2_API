@@ -13,10 +13,16 @@
     "q": "^1.4.1",
     "request": "^2.75.0",
     "request-promise": "^4.1.1",
-    "winston": "^2.2.0"
+    "winston": "^2.2.0",
+    "snyk": "^1.189.0"
   },
   "bin": {
     "snippet": "./lease.js",
     "gcpOrgAdder": "./gcpOrgAdder.js"
-  }
+  },
+  "scripts": {
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "snyk": true
 }
