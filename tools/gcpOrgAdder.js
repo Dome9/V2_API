@@ -103,6 +103,14 @@ jwtClient.authorize(function (err, tokens) {
                     requestForService.serviceName = 'admin.googleapis.com';
                     promises.push(utils.enableService(_.cloneDeep(requestForService)));
 
+                    // console.log(`project:${acc.projectId} - ${requestForService.serviceName} enabled`);
+                    requestForService.serviceName = 'bigtableadmin.googleapis.com';
+                    promises.push(utils.enableService(_.cloneDeep(requestForService)));
+
+                    // console.log(`project:${acc.projectId} - ${requestForService.serviceName} enabled`);
+                    requestForService.serviceName = 'cloudfunctions.googleapis.com';
+                    promises.push(utils.enableService(_.cloneDeep(requestForService)));
+
                     await Q.all(promises);
                     console.log(`enabled all apis successfully for project: ${acc.projectId}`);
                     readyToOnboardList.push(acc);
